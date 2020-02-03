@@ -5,6 +5,7 @@
 | [90]   | [90] |
 | [90, 100] | [90, 100] |
 | [20] | [40] |
+| [20, 30] | [40, 40]
 
 lower limits - 40 default
 higher limits - 1000 default

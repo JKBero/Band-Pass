@@ -36,6 +36,14 @@ describe BandPassFilter do
       expect(band_pass.filter).to eq [1000, 1000]
     end
 
+    it 'returns an amended soundwave' do
+      band_pass = BandPassFilter.new([30, 90, 100, 110, 1200])
+      expect(band_pass.filter).to eq [40, 90, 100, 110, 1000]
+
+      band_pass = BandPassFilter.new([20, 40, 90, 100, 110, 1200, 1350])
+      expect(band_pass.filter).to eq [40, 40, 90, 100, 110, 1000, 1000]
+    end
+
   end
 
   describe 'when given a custom lower limit' do
@@ -56,8 +64,14 @@ describe BandPassFilter do
       expect(band_pass.filter).to eq [90, 90]
     end
 
+    it 'returns an amended soundwave' do
+      band_pass = BandPassFilter.new([80, 90, 100, 110, 310, 320], lower_limit: 90, upper_limit: 300)
+      expect(band_pass.filter).to eq [90, 90, 100, 110, 300, 300]
+
+      band_pass = BandPassFilter.new([70, 80, 90, 100, 110, 1200, 1350], lower_limit: 90, upper_limit: 300)
+      expect(band_pass.filter).to eq [90, 90, 90, 100, 110, 300, 300]
+    end
+
   end
-
-
 
 end

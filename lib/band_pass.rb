@@ -7,12 +7,11 @@ class BandPassFilter
   end
 
  def filter
-   if @soundwave
-     filtered_soundwave = @soundwave.map do |frequency|
-       frequency < @lower_limit ? lower_filter(frequency) : upper_filter(frequency)
-     end
-     filtered_soundwave
-  end
+  return nil unless @soundwave
+   filtered_soundwave = @soundwave.map do |frequency|
+     frequency < @lower_limit ? lower_filter(frequency) : upper_filter(frequency)
+   end
+   filtered_soundwave
  end
 
  private

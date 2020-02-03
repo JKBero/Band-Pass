@@ -71,7 +71,10 @@ describe BandPassFilter do
       band_pass = BandPassFilter.new([70, 80, 90, 100, 110, 1200, 1350], lower_limit: 90, upper_limit: 300)
       expect(band_pass.filter).to eq [90, 90, 90, 100, 110, 300, 300]
     end
-
   end
 
+  it 'returns nil if passed nil' do
+    band_pass = BandPassFilter.new(nil)
+    expect(band_pass.filter).to eq nil
+  end
 end

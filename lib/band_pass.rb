@@ -1,8 +1,9 @@
 class BandPassFilter
 
-  def initialize(soundwave, lower_limit = 40)
+  def initialize(soundwave, lower_limit: 40, upper_limit: 1000)
     @soundwave = soundwave
     @lower_limit = lower_limit
+    @upper_limit = upper_limit
   end
 
  def filter(soundwave = @soundwave)
@@ -10,8 +11,8 @@ class BandPassFilter
    @soundwave.each do |frequency|
      if frequency < @lower_limit
        filtered_soundwave << @lower_limit
-     elsif frequency > 1000
-       filtered_soundwave << 1000
+     elsif frequency > @upper_limit
+       filtered_soundwave << @upper_limit
      else
        filtered_soundwave << frequency
      end

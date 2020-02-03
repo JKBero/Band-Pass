@@ -8,8 +8,8 @@ class BandPassFilter
  def filter(soundwave = @soundwave)
    filtered_soundwave = []
    @soundwave.each do |frequency|
-     if frequency < 40
-       filtered_soundwave << 40
+     if frequency < @lower_limit
+       filtered_soundwave << @lower_limit
      else
        filtered_soundwave << frequency
      end

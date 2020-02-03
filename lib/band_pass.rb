@@ -10,6 +10,8 @@ class BandPassFilter
    @soundwave.each do |frequency|
      if frequency < @lower_limit
        filtered_soundwave << @lower_limit
+     elsif frequency > 1000
+       filtered_soundwave << 1000
      else
        filtered_soundwave << frequency
      end

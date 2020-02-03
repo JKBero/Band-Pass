@@ -39,4 +39,12 @@ describe BandPassFilter do
 
   end
 
+  it 'returns a soundwave of upper limit frequencies if array digits are above limit' do
+    band_pass = BandPassFilter.new([1020])
+    (expect(band_pass.filter)).to eq [1000]
+
+    band_pass = BandPassFilter.new([1020, 1230])
+    (expect(band_pass.filter)).to eq [1000, 1000]
+  end
+
 end

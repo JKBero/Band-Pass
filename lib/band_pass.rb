@@ -1,13 +1,20 @@
 class BandPassFilter
 
-  def initialize(soundwave)
+  def initialize(soundwave, lower_limit = 40)
     @soundwave = soundwave
+    @lower_limit = lower_limit
   end
 
  def filter(soundwave = @soundwave)
-   return [40] if soundwave == [20]
-   return [40] if soundwave == [30]
-   soundwave
+   filtered_soundwave = []
+   @soundwave.each do |frequency|
+     if frequency < 40
+       filtered_soundwave << 40
+     else
+       filtered_soundwave << frequency
+     end
+   end
+   filtered_soundwave
  end
 
 end

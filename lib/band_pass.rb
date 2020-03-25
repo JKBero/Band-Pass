@@ -6,22 +6,22 @@ class BandPassFilter
     @upper_limit = upper_limit
   end
 
- def filter
-  return nil unless @soundwave
-   filtered_soundwave = @soundwave.map do |frequency|
-     frequency < @lower_limit ? lower_filter(frequency) : upper_filter(frequency)
-   end
-   filtered_soundwave
- end
+  def filter
+    return nil unless @soundwave
+     filtered_soundwave = @soundwave.map do |frequency|
+       frequency < @lower_limit ? lower_filter(frequency) : upper_filter(frequency)
+     end
+     filtered_soundwave
+  end
 
- private
+  private
 
- def lower_filter(frequency)
-   frequency < @lower_limit ? @lower_limit : frequency
- end
+  def lower_filter(frequency)
+    frequency < @lower_limit ? @lower_limit : frequency
+  end
 
- def upper_filter(frequency)
-   frequency > @upper_limit ? @upper_limit : frequency
- end
+  def upper_filter(frequency)
+    frequency > @upper_limit ? @upper_limit : frequency
+  end
 
 end
